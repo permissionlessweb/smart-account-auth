@@ -31,9 +31,12 @@ bech32                  = { version = "0.11.0", default-features = false, featur
 base64                  = { version = "0.22.1", default-features = false, features = ["alloc"] }
 semver                  = { version = "1.0.26", default-features = false }
 thiserror               = { version = "2.0.12", default-features = false }
-cosmwasm-schema   = { git = "https://github.com/permissionlessweb/cosmwasm", branch = "mvp", package = "cosmwasm-schema", default-features = false  }
-cosmwasm-crypto   = { git = "https://github.com/permissionlessweb/cosmwasm", branch = "mvp",package = "cosmwasm-crypto", default-features = false  }
 
+#cosmwasm-schema   = { git = "https://github.com/permissionlessweb/cosmwasm", branch = "mvp", package = "cosmwasm-schema", default-features = false  }
+#cosmwasm-crypto   = { git = "https://github.com/permissionlessweb/cosmwasm", branch = "mvp",package = "cosmwasm-crypto", default-features = false  }
+
+cosmwasm-schema   = { path = "../zk-cosmwasm/mvp/packages/schema" }
+cosmwasm-crypto   = { path = "../zk-cosmwasm/mvp/packages/crypto" }
 
 saa-proto-core          = { version = "0.28.0", path = "packages/macros-proto/core" }
 saa-proto-wasm          = { version = "0.28.0", path = "packages/macros-proto/wasm" }
