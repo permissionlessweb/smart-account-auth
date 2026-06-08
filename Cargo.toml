@@ -1,16 +1,16 @@
 [workspace]
 members = [
-    "packages/bundle",
     "packages/auth",
-    "packages/passkeys",
-    "packages/curves",
+    "packages/bundle",
     "packages/common",
     "packages/crypto",
-    "packages/schema",
-    "packages/macros-proto/wasm",
+    "packages/curves",
     "packages/macros-proto/core",
     "packages/macros-proto/solana",
     "packages/macros-proto/substrate",
+    "packages/macros-proto/wasm",
+    "packages/passkeys",
+    "packages/schema",
     "packages/tests",
 ]
 
@@ -22,55 +22,47 @@ edition         = "2021"
 readme          = "README.md"
 repository      = "https://github.com/MegaRockLabs/smart-account-auth"
 description     = "Utilities, types and verification logic for smart contract / program based accounts for various blockchain-based virtual machines"
-authors         = [ "Kromsten <kromsten@megarock.app>" ]
+authors         = ["Kromsten <kromsten@megarock.app>"]
 license         = "MIT"
 
-
 [workspace.dependencies]
-bech32                  = { version = "0.11.0", default-features = false, features = ["alloc"] }
 base64                  = { version = "0.22.1", default-features = false, features = ["alloc"] }
+bech32                  = { version = "0.11.0", default-features = false, features = ["alloc"] }
+cosmwasm-crypto = { path = "../cosmwasm/packages/crypto" }
+cosmwasm-schema = { path = "../cosmwasm/packages/schema" }
 semver                  = { version = "1.0.26", default-features = false }
 thiserror               = { version = "2.0.12", default-features = false }
-cosmwasm-schema = { git = "https://github.com/permissionlessweb/cosmwasm", branch = "zk-mvp" }
-cosmwasm-crypto = { git = "https://github.com/permissionlessweb/cosmwasm", branch = "zk-mvp" }
-
 
 saa-proto-core          = { version = "0.26.0", path = "packages/macros-proto/core" }
-saa-proto-wasm          = { version = "0.26.0", path = "packages/macros-proto/wasm" }
 saa-proto-solana        = { version = "0.26.0", path = "packages/macros-proto/solana" }
 saa-proto-substrate     = { version = "0.26.0", path = "packages/macros-proto/substrate" }
+saa-proto-wasm          = { version = "0.26.0", path = "packages/macros-proto/wasm" }
 
-saa-schema              = { version = "0.26.0", path = "packages/schema" }
+saa-auth              = { version = "0.26.8", path = "packages/auth" }
 saa-common              = { version = "0.26.8", path = "packages/common", default-features = false }
 saa-crypto              = { version = "0.26.7", path = "packages/crypto" }
-saa-auth                = { version = "0.26.8", path = "packages/auth" }
 saa-curves              = { version = "0.26.5", path = "packages/curves" }
 saa-passkeys            = { version = "0.26.5", path = "packages/passkeys" }
-smart-account-auth = { git = "https://github.com/permissionlessweb/smart-account-auth", branch = "zk-mvp" }
-
-
+saa-schema = { version = "0.26.0", path = "packages/schema" }
+smart-account-auth = { path = "packages/bundle" }
 
 # Substrate
-scale               = { version = "3.6.12", default-features = false, features = ["derive"], package = "parity-scale-codec"}
+borsh               = { version = "1.5.7", default-features = false, features = ["derive"] }
+scale = { version = "3.6.12", default-features = false, features = ["derive"], package = "parity-scale-codec" }
 scale-info          = { version = "2.11.3", default-features = false, features = ["derive"] }
+schemars            = { version = "0.8.22", default-features = false, features = ["derive"] }
 # CosmWasm
 serde               = { version = "1.0.219", default-features = false, features = ["derive"] }
-schemars            = { version = "0.8.22",  default-features = false, features = ["derive"] }
-# Solana
-borsh               = { version = "1.5.7", default-features = false, features = ["derive"] }
 
-
-strum               = { version = "0.27.1" }
+serde-json-wasm               = { version = "1.0.1", default-features = false }
+serde_json          = { version = "0.7.0", default-features = false, package = "serde-cw-value" }
+strum = { version = "0.27.1" }
 strum_macros        = { version = "0.27.1" }
-serde-json-wasm     = { version = "1.0.1",  default-features = false }
-serde_json          = { version = "0.7.0",  default-features = false, package = "serde-cw-value" }
 
 enum_dispatch       = { version = "0.3.13" } 
 
-[profile.release.package.smart-account-auth]
-codegen-units = 1
-incremental = false
-
+[patch.'https://github.com/permissionlessweb/smart-account-auth']
+smart-account-auth = { path = "packages/bundle" }
 
 [profile.release]
 rpath = false
@@ -79,3 +71,7 @@ overflow-checks = true
 opt-level = 3
 debug = false
 debug-assertions = false
+
+[profile.release.package.smart-account-auth]
+codegen-units = 1
+incremental = false

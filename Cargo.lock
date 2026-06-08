@@ -364,9 +364,9 @@ checksum = "1fd0f2584146f6f2ef48085050886acf353beff7305ebd1ae69500e27c67f64b"
 
 [[package]]
 name = "cc"
-version = "1.2.59"
+version = "1.2.60"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b7a4d3ec6524d28a329fc53654bbadc9bdd7b0431f5d65f1a56ffb28a1ee5283"
+checksum = "43c5703da9466b66a946814e1adf53ea2c90f10063b86290cc9eb67ce3478a20"
 dependencies = [
  "find-msvc-tools",
  "shlex",
@@ -439,12 +439,10 @@ dependencies = [
 [[package]]
 name = "cosmwasm-core"
 version = "3.0.3-dev"
-source = "git+https://github.com/permissionlessweb/cosmwasm?branch=zk-mvp#05dfc94748bb8b79866ee0a7fcea02df46d9be0a"
 
 [[package]]
 name = "cosmwasm-crypto"
 version = "3.0.3-dev"
-source = "git+https://github.com/permissionlessweb/cosmwasm?branch=zk-mvp#05dfc94748bb8b79866ee0a7fcea02df46d9be0a"
 dependencies = [
  "ark-bls12-381",
  "ark-ec",
@@ -477,7 +475,6 @@ dependencies = [
 [[package]]
 name = "cosmwasm-derive"
 version = "3.0.3-dev"
-source = "git+https://github.com/permissionlessweb/cosmwasm?branch=zk-mvp#05dfc94748bb8b79866ee0a7fcea02df46d9be0a"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -487,7 +484,6 @@ dependencies = [
 [[package]]
 name = "cosmwasm-schema"
 version = "3.0.3-dev"
-source = "git+https://github.com/permissionlessweb/cosmwasm?branch=zk-mvp#05dfc94748bb8b79866ee0a7fcea02df46d9be0a"
 dependencies = [
  "cosmwasm-schema-derive",
  "cw-schema",
@@ -500,7 +496,6 @@ dependencies = [
 [[package]]
 name = "cosmwasm-schema-derive"
 version = "3.0.3-dev"
-source = "git+https://github.com/permissionlessweb/cosmwasm?branch=zk-mvp#05dfc94748bb8b79866ee0a7fcea02df46d9be0a"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -510,7 +505,6 @@ dependencies = [
 [[package]]
 name = "cosmwasm-std"
 version = "3.0.3-dev"
-source = "git+https://github.com/permissionlessweb/cosmwasm?branch=zk-mvp#05dfc94748bb8b79866ee0a7fcea02df46d9be0a"
 dependencies = [
  "base64 0.22.1",
  "bech32",
@@ -649,7 +643,6 @@ dependencies = [
 [[package]]
 name = "cw-schema"
 version = "3.0.3-dev"
-source = "git+https://github.com/permissionlessweb/cosmwasm?branch=zk-mvp#05dfc94748bb8b79866ee0a7fcea02df46d9be0a"
 dependencies = [
  "cw-schema-derive",
  "indexmap",
@@ -663,7 +656,6 @@ dependencies = [
 [[package]]
 name = "cw-schema-derive"
 version = "3.0.3-dev"
-source = "git+https://github.com/permissionlessweb/cosmwasm?branch=zk-mvp#05dfc94748bb8b79866ee0a7fcea02df46d9be0a"
 dependencies = [
  "heck",
  "itertools 0.13.0",
@@ -1192,9 +1184,9 @@ dependencies = [
 
 [[package]]
 name = "hashbrown"
-version = "0.16.1"
+version = "0.17.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "841d1cc9bed7f9236f321df977030373f4a4163ae1a7dbfe1a51a2c1a51d9100"
+checksum = "4f467dd6dccf739c208452f8014c75c18bb8301b050ad1cfb27153803edb0f51"
 
 [[package]]
 name = "heck"
@@ -1260,12 +1252,12 @@ dependencies = [
 
 [[package]]
 name = "indexmap"
-version = "2.13.1"
+version = "2.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "45a8a2b9cb3e0b0c1803dbb0758ffac5de2f425b23c28f518faabd9d805342ff"
+checksum = "d466e9454f08e4a911e14806c24e16fba1b4c121d1ea474396f396069cf949d9"
 dependencies = [
  "equivalent",
- "hashbrown 0.16.1",
+ "hashbrown 0.17.0",
 ]
 
 [[package]]
@@ -2033,24 +2025,9 @@ version = "0.26.9"
 dependencies = [
  "hex",
  "primitive-types",
- "saa-common 0.26.9",
- "saa-crypto 0.26.9",
- "saa-schema 0.26.0",
- "schemars 0.8.22",
- "serde",
- "serde-cw-value",
-]
-
-[[package]]
-name = "saa-auth"
-version = "0.26.9"
-source = "git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp#2ada161f6d08d47521290832e6eeda3365dd7672"
-dependencies = [
- "hex",
- "primitive-types",
- "saa-common 0.26.9 (git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp)",
- "saa-crypto 0.26.9 (git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp)",
- "saa-schema 0.26.0 (git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp)",
+ "saa-common",
+ "saa-crypto",
+ "saa-schema",
  "schemars 0.8.22",
  "serde",
  "serde-cw-value",
@@ -2068,31 +2045,10 @@ dependencies = [
  "getrandom",
  "ink",
  "parity-scale-codec",
- "saa-schema 0.26.0",
+ "saa-schema",
  "scale-info",
  "schemars 0.8.22",
  "secret-cosmwasm-std",
- "serde",
- "serde-cw-value",
- "serde-json-wasm 1.0.1",
- "strum",
- "thiserror 2.0.18",
-]
-
-[[package]]
-name = "saa-common"
-version = "0.26.9"
-source = "git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp#2ada161f6d08d47521290832e6eeda3365dd7672"
-dependencies = [
- "base64 0.22.1",
- "bech32",
- "cosmwasm-std",
- "getrandom",
- "ink",
- "parity-scale-codec",
- "saa-schema 0.26.0 (git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp)",
- "scale-info",
- "schemars 0.8.22",
  "serde",
  "serde-cw-value",
  "serde-json-wasm 1.0.1",
@@ -2109,23 +2065,8 @@ dependencies = [
  "digest 0.10.7",
  "p256",
  "ripemd",
- "saa-common 0.26.9",
- "saa-schema 0.26.0",
- "serde",
- "sha2 0.10.9",
- "tiny-keccak",
-]
-
-[[package]]
-name = "saa-crypto"
-version = "0.26.9"
-source = "git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp#2ada161f6d08d47521290832e6eeda3365dd7672"
-dependencies = [
- "bech32",
- "p256",
- "ripemd",
- "saa-common 0.26.9 (git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp)",
- "saa-schema 0.26.0 (git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp)",
+ "saa-common",
+ "saa-schema",
  "serde",
  "sha2 0.10.9",
  "tiny-keccak",
@@ -2135,55 +2076,24 @@ dependencies = [
 name = "saa-curves"
 version = "0.26.9"
 dependencies = [
- "saa-common 0.26.9",
- "saa-crypto 0.26.9",
- "saa-schema 0.26.0",
-]
-
-[[package]]
-name = "saa-curves"
-version = "0.26.9"
-source = "git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp#2ada161f6d08d47521290832e6eeda3365dd7672"
-dependencies = [
- "saa-common 0.26.9 (git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp)",
- "saa-crypto 0.26.9 (git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp)",
- "saa-schema 0.26.0 (git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp)",
+ "saa-common",
+ "saa-crypto",
+ "saa-schema",
 ]
 
 [[package]]
 name = "saa-passkeys"
 version = "0.26.9"
 dependencies = [
- "saa-common 0.26.9",
- "saa-crypto 0.26.9",
- "saa-schema 0.26.0",
- "serde",
-]
-
-[[package]]
-name = "saa-passkeys"
-version = "0.26.9"
-source = "git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp#2ada161f6d08d47521290832e6eeda3365dd7672"
-dependencies = [
- "saa-common 0.26.9 (git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp)",
- "saa-crypto 0.26.9 (git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp)",
- "saa-schema 0.26.0 (git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp)",
+ "saa-common",
+ "saa-crypto",
+ "saa-schema",
  "serde",
 ]
 
 [[package]]
 name = "saa-proto-core"
 version = "0.26.0"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn 1.0.109",
-]
-
-[[package]]
-name = "saa-proto-core"
-version = "0.26.0"
-source = "git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp#2ada161f6d08d47521290832e6eeda3365dd7672"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -2218,43 +2128,16 @@ dependencies = [
 ]
 
 [[package]]
-name = "saa-proto-wasm"
-version = "0.26.0"
-source = "git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp#2ada161f6d08d47521290832e6eeda3365dd7672"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn 1.0.109",
-]
-
-[[package]]
 name = "saa-schema"
 version = "0.26.0"
 dependencies = [
  "borsh",
  "cosmwasm-schema",
  "parity-scale-codec",
- "saa-proto-core 0.26.0",
+ "saa-proto-core",
  "saa-proto-solana",
  "saa-proto-substrate",
- "saa-proto-wasm 0.26.0",
- "scale-info",
- "schemars 0.8.22",
- "serde",
- "strum",
- "strum_macros",
- "thiserror 2.0.18",
-]
-
-[[package]]
-name = "saa-schema"
-version = "0.26.0"
-source = "git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp#2ada161f6d08d47521290832e6eeda3365dd7672"
-dependencies = [
- "cosmwasm-schema",
- "parity-scale-codec",
- "saa-proto-core 0.26.0 (git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp)",
- "saa-proto-wasm 0.26.0 (git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp)",
+ "saa-proto-wasm",
  "scale-info",
  "schemars 0.8.22",
  "serde",
@@ -2271,12 +2154,12 @@ dependencies = [
  "cosmwasm-schema",
  "cosmwasm-std",
  "hex",
- "saa-common 0.26.9",
- "saa-schema 0.26.0",
+ "saa-common",
+ "saa-schema",
  "schemars 0.8.22",
  "serde",
  "serde_json",
- "smart-account-auth 0.26.3 (git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp)",
+ "smart-account-auth",
  "strum",
  "strum_macros",
 ]
@@ -2738,29 +2621,12 @@ checksum = "67b1b7a3b5fe4f1376887184045fcf45c69e92af734b7aaddc05fb777b6fbd03"
 name = "smart-account-auth"
 version = "0.26.3"
 dependencies = [
- "saa-auth 0.26.9",
- "saa-common 0.26.9",
- "saa-crypto 0.26.9",
- "saa-curves 0.26.9",
- "saa-passkeys 0.26.9",
- "saa-schema 0.26.0",
- "schemars 0.8.22",
- "serde",
- "serde-cw-value",
- "strum",
-]
-
-[[package]]
-name = "smart-account-auth"
-version = "0.26.3"
-source = "git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp#2ada161f6d08d47521290832e6eeda3365dd7672"
-dependencies = [
- "saa-auth 0.26.9 (git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp)",
- "saa-common 0.26.9 (git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp)",
- "saa-crypto 0.26.9 (git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp)",
- "saa-curves 0.26.9 (git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp)",
- "saa-passkeys 0.26.9 (git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp)",
- "saa-schema 0.26.0 (git+https://github.com/permissionlessweb/smart-account-auth?branch=zk-mvp)",
+ "saa-auth",
+ "saa-common",
+ "saa-crypto",
+ "saa-curves",
+ "saa-passkeys",
+ "saa-schema",
  "schemars 0.8.22",
  "serde",
  "serde-cw-value",

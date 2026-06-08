@@ -7,54 +7,14 @@ license     = { workspace = true }
 repository  = { workspace = true }
 version     = { workspace = true }
 
-
-[dependencies]
-saa-schema          = { workspace = true }
-thiserror           = { workspace = true }
-
-
-cosmwasm-std = { git = "https://github.com/permissionlessweb/cosmwasm", branch = "zk-mvp", optional = true }
-cosmwasm-std-v1 = { package = "cosmwasm-std", git = "https://github.com/permissionlessweb/cosmwasm", branch = "zk-mvp", optional = true }
-secretwasm-std      = { version = "1.1.11", optional = true, package = "secret-cosmwasm-std" }
-ink                 = { version = "5.1.1", optional = true, default-features = false }
-scale-info          = { workspace = true, optional = true }
-scale               = { workspace = true, optional = true }
-borsh               = { workspace = true, optional = true }
-schemars            = { workspace = true, optional = true }
-cosmwasm-crypto     = { workspace = true, optional = true }
-bech32              = { workspace = true, optional = true }
-base64              = { workspace = true }
-serde               = { workspace = true }
-strum               = { workspace = true }
-serde-json-wasm     = { workspace = true }
-serde_json          = { workspace = true, optional = true }
-getrandom           = { version = "0.2.15",  default-features = false, features = ["custom"] }
-
-
 [features]
-default     = [
-    "std", 
-    "replay",
-]
-solana      = [
-    "dep:borsh", 
-    "saa-schema/solana"
-]
-cosmwasm    = [
-    "cosmwasm-std/std",
-    "std",
-    "wasm",
-]
-cosmwasm_v1 = [
-    "dep:cosmwasm-std-v1",
-    "wasm"
-]
-secretwasm  = [
-    "dep:secretwasm-std",
-    "wasm",
-]
+default     = ["std", "replay"]
+solana      = ["dep:borsh", "saa-schema/solana"]
+cosmwasm    = ["cosmwasm-std/std", "std", "wasm"]
+cosmwasm_v1 = ["dep:cosmwasm-std-v1", "wasm"]
+secretwasm  = ["dep:secretwasm-std", "wasm"]
 substrate   = [
-    "dep:ink", 
+    "dep:ink",
     "dep:scale",
     "dep:scale-info",
     "saa-schema/substrate",
@@ -66,23 +26,36 @@ std         = [
     "scale-info?/std",
     "saa-schema/std",
 ]
-native     = [
-    "dep:cosmwasm-crypto",
-]
+native     = ["dep:cosmwasm-crypto"]
 session    = []
-wasm       = [
-    "dep:schemars",
-    "saa-schema/cosmwasm",
-]
+wasm       = ["dep:schemars", "saa-schema/cosmwasm"]
 replay     = []
-types      = [
-    "dep:schemars",
-    "saa-schema/cosmwasm",
-]
-ed25519         =  []
-secp256k1       =  []
-secp256r1       =  []
-passkeys        =  []
-eth_personal    =  []
-eth_typed_data  =  ["dep:serde_json", "dep:schemars", "std"]
-cosmos_arb      =  ["dep:bech32"]
+types      = ["dep:schemars", "saa-schema/cosmwasm"]
+ed25519         = []
+secp256k1       = []
+secp256r1       = []
+passkeys        = []
+eth_personal    = []
+eth_typed_data  = ["dep:serde_json", "dep:schemars", "std"]
+cosmos_arb      = ["dep:bech32"]
+
+[dependencies]
+saa-schema          = { workspace = true }
+thiserror           = { workspace = true }
+
+base64 = { workspace = true }
+bech32              = { workspace = true, optional = true }
+borsh               = { workspace = true, optional = true }
+cosmwasm-crypto     = { workspace = true, optional = true }
+cosmwasm-std = { path = "../../../cosmwasm/packages/std", optional = true }
+cosmwasm-std-v1 = { package = "cosmwasm-std", path = "../../../cosmwasm/packages/std", optional = true }
+getrandom           = { version = "0.2.15", default-features = false, features = ["custom"] }
+ink                 = { version = "5.1.1", optional = true, default-features = false }
+scale               = { workspace = true, optional = true }
+scale-info          = { workspace = true, optional = true }
+schemars            = { workspace = true, optional = true }
+secretwasm-std      = { version = "1.1.11", optional = true, package = "secret-cosmwasm-std" }
+serde               = { workspace = true }
+serde-json-wasm     = { workspace = true }
+serde_json          = { workspace = true, optional = true }
+strum               = { workspace = true }
